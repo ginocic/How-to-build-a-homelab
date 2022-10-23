@@ -34,7 +34,7 @@ Have you ever realized that a cheap router/firewall is usually the main thing pr
 You usually don't need a powerful CPU or a great deal of memory to build your own router/firewall, unless you are handling a huge throughput or want to do CPU-intensive tasks, like a VPN server or traffic filtering. In such cases, you'll need a multicore CPU with AES-NI support. 
 
 ou may want to get at least two 1-gigabit or better Ethernet network interface cards (NICs), also, not needed, but recommended, a managed switch to connect your DIY-router to create VLANs to further isolate and secure your network.
-
+![network](img/pfsense2.png)
 
 
 
