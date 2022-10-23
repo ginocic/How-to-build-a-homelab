@@ -36,6 +36,46 @@ You usually don't need a powerful CPU or a great deal of memory to build your ow
 ou may want to get at least two 1-gigabit or better Ethernet network interface cards (NICs), also, not needed, but recommended, a managed switch to connect your DIY-router to create VLANs to further isolate and secure your network.
 ![network](img/pfsense2.png)
 
+# Software
+After you've selected your virtualization server, NAS, and firewall/router, the next step is exploring the different operating systems and software to maximize their benefits. While you could use a regular Linux distribution like CentOS, Debian, or Ubuntu, they usually take more time to configure and administer than the following options.
+
+## Virtualization software
+[**KVM**](https://www.linux-kvm.org/page/Main_Page) (Kernel-based Virtual Machine) lets you turn Linux into a hypervisor so you can run multiple virtual machines in the same box. The best thing is that KVM is part of Linux, and it is the go-to option for many enterprises and home users. If you are comfortable, you can install libvirt and virt-manager to manage your virtualization platform.
+
+[**Proxmox VE**](https://www.proxmox.com/en/proxmox-ve) is a robust, enterprise-grade solution and a full open source virtualization and container platform. It is based on Debian and uses KVM as its hypervisor and LXC for containers. Proxmox offers a powerful web interface, an API, and can scale out to many clustered nodes, which is helpful because you'll never know when you'll run out of capacity in your lab.
+
+[**oVirt (RHV)**](https://ovirt.org/) is another enterprise-grade solution that uses KVM as the hypervisor. Just because it's enterprise doesn't mean you can't use it at home. oVirt offers a powerful web interface and an API and can handle hundreds of nodes (if you are running that many servers, I don't want to be your neighbor!). The potential problem with oVirt for a home lab is that it requires a minimum set of nodes: You'll need one external storage, such as a NAS, and at least two additional virtualization nodes (you can run it just on one, but you'll run into problems in maintenance of your environment).
+
+## NAS software
+[**TrueNAS**](https://www.truenas.com/) (formely FreeNAS) is the most popular open source NAS distribution, and it's based on the rock-solid FreeBSD operating system. One of its most robust features is its use of the ZFS filesystem, which provides data-integrity checking, snapshots, replication, and multiple levels of redundancy (mirroring, striped mirrors, and striping). On top of that, everything is managed from the powerful and easy-to-use web interface. Before installing TrueNAS, check its hardware support, as it is not as wide as Linux-based distributions.
+
+Another popular alternative is the Linux-based [**OpenMediaVault**](https://www.openmediavault.org/). One of its main features is its modularity, with plugins that extend and add features. Among its included features are a web-based administration interface; protocols like CIFS, SFTP, NFS, iSCSI; and volume management, including software RAID, quotas, access control lists (ACLs), and share management. Because it is Linux-based, it has extensive hardware support.
+
+## Firewall/router software
+[**pfSense**](https://www.pfsense.org/) is an open source, enterprise-grade FreeBSD-based router and firewall distribution. It can be installed directly on a server or even inside a virtual machine (to manage your virtual or physical networks and save space). It has many features and can be expanded using packages. It is managed entirely using the web interface, although it also has command-line access. It has all the features you would expect from a router and firewall, like DHCP and DNS, as well as more advanced features, such as intrusion detection (IDS) and intrusion prevention (IPS) systems. You can create multiple networks listening on different interfaces or using VLANs, and you can create a secure VPN server with a few clicks. pfSense uses pf, a stateful packet filter that was developed for the OpenBSD operating system using a syntax similar to IPFilter. Many companies and organizations use pfSense.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Bibliography and sources
